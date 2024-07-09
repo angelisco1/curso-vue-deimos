@@ -17,14 +17,14 @@
     </div>
     <div v-else>
       <p>Menú</p>
-      <button @click="login">Login</button>
+      <button click="login">Login</button>
     </div>
 
     <p v-show="isAuthenticated">Bienvenido usuario</p>
 
     <h3>Iterables</h3>
     <ul>
-      <li v-for="(usuario, index) in listaUsuarios">{{index + 1}} - {{ usuario }}</li>
+      <li v-marcar:text="'red'" v-for="(usuario, index) in listaUsuarios" :key="index">{{index + 1}} - {{ usuario }}</li>
     </ul>
 
     <ul>
@@ -35,6 +35,14 @@
       <li v-for="key in Object.keys(usuarioLogueado)">{{ key }}</li>
     </ul>
 
+    <ul>
+      <li v-for="num in 5" :key="num">{{num}}</li>
+    </ul>
+
+    <h3 v-marcar:background.blink="'yellow'">Crear una directiva</h3>
+    <div>
+      <input type="text" v-focus>
+    </div>
 
   </div>
 </template>
@@ -55,6 +63,42 @@ const usuarioLogueado = reactive({
   username: 'cfalco',
   lastLogin: Date.now()
 })
+
+const vFocus = {
+  mounted: (el) => {
+    el.focus()
+  }
+}
+
+const vMarcar = {
+  beforeMount(el, binding) {
+    console.log(el)
+    console.log(binding)
+    const cssProp = binding.arg === 'text' ? 'color' : 'backgroundColor'
+    let intervalId = null
+
+    el.addEventListener('mouseover', () => {
+      console.log('Ha pasado por encima')
+
+      if (binding.modifiers.blink) {
+        intervalId = setInterval(() => {
+          el.style[cssProp] = el.style[cssProp] === binding.value ? null : binding.value
+        }, 1000)
+      } else {
+        // el.style.backgroundColor = binding.value
+        el.style[cssProp] = binding.value
+      }
+
+    })
+
+    el.addEventListener('mouseleave', () => {
+      console.log('Ha quitado el ratón de encima')
+      // el.style.backgroundColor = 'white'
+      clearInterval(intervalId)
+      el.style[cssProp] = null
+    })
+  },
+}
 
 const login = () => {
   isAuthenticated.value = true
