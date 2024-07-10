@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, reactive, watch } from 'vue';
 import axios from 'axios'
 
 const titulo = ref('')
@@ -32,6 +32,35 @@ watch(titulo, (nuevoTitulo, viejoTitulo) => {
     console.log(viejoTitulo)
   }
 })
+
+
+const usuario = ref({
+  perfil: {
+    nombre: 'Charly',
+    apellido: 'Falco'
+  }
+})
+
+watch(usuario, (newUsuario, oldUsuario) => {
+  console.log('Se ha cambiado el usuario')
+})
+
+watch(usuario, (newUsuario, oldUsuario) => {
+  console.log('Se ha cambiado el usuario (deep)')
+}, {deep: true})
+
+watch(() => usuario.value.perfil.nombre, (newNombre, oldNombre) => {
+  console.log('Se ha cambiado el nombre')
+})
+
+setTimeout(() => {
+  usuario.value.perfil.apellido = 'Mike'
+}, 2000)
+
+setTimeout(() => {
+  usuario.value = { perfil: { nombre: 'Mike', apellido: 'Falco'} }
+}, 4000)
+
 
 </script>
 

@@ -21,7 +21,6 @@ const emit = defineEmits(['addToCart'])
 const addToCart = () => {
   emit('addToCart', props.sugus)
 }
-
 </script>
 
 <style>
