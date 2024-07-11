@@ -28,8 +28,23 @@ const props = defineProps({
 
 <style>
 #envoltorio {
-  width: 150px;
-  height: 150px;
   border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+}
+
+#envoltorio > p {
+  text-align: center;
+  transform-origin: center center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  text-shadow: 60px 0px 0px, -60px 0px 0px, -25px 30px 0px, 25px -30px 0px, 30px 30px 0px, -30px -30px 0px, 0px 60px 0px, 0px -60px 0px;
 }
 </style>

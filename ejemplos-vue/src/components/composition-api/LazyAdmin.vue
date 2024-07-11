@@ -4,9 +4,17 @@
     <ul>
       <li>
         <a href="#">Importar productos</a>
+      </li>
+      <li>
         <a href="#">Exportar productos</a>
+      </li>
+      <li>
         <a href="#">Roles</a>
+      </li>
+      <li>
         <a href="#">Usuarios</a>
+      </li>
+      <li>
         <a href="#">Otras opciones</a>
       </li>
     </ul>

@@ -32,7 +32,7 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, watch, reactive } from 'vue';
+import { ref, watch, reactive, inject } from 'vue';
 
 const filtro = ref('')
 // const num = ref(0)
@@ -41,15 +41,20 @@ const cocktails = ref([])
 // const cocktails = reactive([])
 const cocktailSeleccionado = ref(null)
 
+const CocktailsApi = inject('CocktailsApi')
+
+
+
 watch(filtro, async (newFiltro) => {
-  const resp = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${newFiltro}`)
-  console.log(resp.data.drinks)
-  cocktails.value = resp.data.drinks
+  // const resp = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${newFiltro}`)
+  // console.log(resp.data.drinks)
+  // cocktails.value = resp.data.drinks
   // cocktails.data = resp.data.drinks
   // cocktails = resp.data.drinks
   // cocktails.push(...resp.data.drinks)
   // cocktails.length = 0
   // cocktails.push(...resp.data.drinks)
+  cocktails.value = await CocktailsApi.getCocktails(newFiltro)
 })
 
 // watch(num, async (num1) => {

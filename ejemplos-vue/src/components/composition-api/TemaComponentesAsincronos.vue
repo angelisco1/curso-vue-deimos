@@ -3,9 +3,17 @@
     <button @click="mostrarAdmin">Ir al panel de administración</button>
 
     <div v-if="muestraAdmin">
+      <Suspense>
+        <template #default>
+          <LazyAdmin2></LazyAdmin2>
+        </template>
+        <template #fallback>
+          <Spinner></Spinner>
+        </template>
+      </Suspense>
+
       <LazyAdmin></LazyAdmin>
     </div>
-
 
   </div>
 </template>
@@ -19,6 +27,8 @@ const LazyAdmin = defineAsyncComponent({
   loader: () => import('./LazyAdmin.vue'),
   loadingComponent: Spinner
 })
+
+const LazyAdmin2 = defineAsyncComponent(() => import('./LazyAdmin.vue'))
 
 const muestraAdmin = ref(false)
 const mostrarAdmin = () => {

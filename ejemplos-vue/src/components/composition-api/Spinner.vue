@@ -23,8 +23,9 @@
   width: 30px;
   height: 30px;
   border: 3px dotted black;
-  border-radius: 50%;
-  animation: spin infinite infinite;
   border-left-color: rgb(255, 115, 0);
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
 }
 </style>

@@ -4,14 +4,17 @@
   <TemaDatosCA></TemaDatosCA> -->
   <!-- <TemaDirectivasCA></TemaDirectivasCA> -->
   <!-- <TemaWatchersCA></TemaWatchersCA> -->
-  <!-- <BuscadorCocktails></BuscadorCocktails> -->
+  <BuscadorCocktails></BuscadorCocktails>
   <!-- <BuscadorDavid></BuscadorDavid> -->
   <!-- <TemaModificadores></TemaModificadores> -->
   <!-- <TemaPropsYEmits></TemaPropsYEmits> -->
   <!-- <TemaFormulario></TemaFormulario> -->
   <!-- <TemaProvideInject></TemaProvideInject> -->
   <!-- <TemaComponentesDinamicos></TemaComponentesDinamicos> -->
-  <TemaComponentesAsincronos></TemaComponentesAsincronos>
+  <!-- <TemaComponentesAsincronos></TemaComponentesAsincronos> -->
+  <!-- <TemaSlots></TemaSlots> -->
+  <!-- <TemaTeleport></TemaTeleport> -->
+  <!-- <TemaReferenciasDePlantilla></TemaReferenciasDePlantilla> -->
 </template>
 
 <script setup>
@@ -27,6 +30,9 @@ import TemaFormulario from './components/composition-api/TemaFormulario.vue'
 import TemaProvideInject from './components/composition-api/TemaProvideInject.vue'
 import TemaComponentesDinamicos from './components/composition-api/TemaComponentesDinamicos.vue'
 import TemaComponentesAsincronos from './components/composition-api/TemaComponentesAsincronos.vue'
+import TemaSlots from './components/composition-api/TemaSlots.vue'
+import TemaTeleport from './components/composition-api/TemaTeleport.vue'
+import TemaReferenciasDePlantilla from './components/composition-api/TemaReferenciasDePlantilla.vue'
 
 // export default {
 //   name: 'App',
