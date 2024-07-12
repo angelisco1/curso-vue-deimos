@@ -16,7 +16,8 @@ const router = useRouter()
 const crearPlato = async (nuevoPlato) => {
   const cartaId = route.params.cartaId
   await CartasService.crearPlato(cartaId, nuevoPlato)
-  router.push(`/cartas/${cartaId}`)
+
+  router.push({ name: 'carta', params: { cartaId } })
 }
 
 </script>

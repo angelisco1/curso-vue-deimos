@@ -5,7 +5,7 @@
       <Plato v-for="plato in platos" :key="plato.id" :plato="plato"></Plato>
     </div>
     <div v-else>
-      <p>No hay platos en la carta</p>
+      <p data-test="no-hay-platos">No hay platos en la carta</p>
     </div>
 
   </div>

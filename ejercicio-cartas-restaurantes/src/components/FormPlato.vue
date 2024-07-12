@@ -41,7 +41,7 @@ const plato = reactive({
 })
 
 const guardarPlato = () => {
-  console.log(plato)
+  // console.log(plato)
   emit('guardar', plato)
 }
 

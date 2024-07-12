@@ -28,7 +28,13 @@ const crearPlato = (cartaId, plato) => {
   return axios.post(`${urlFirebase}/${cartaId}/platos.json`, plato)
 }
 
+const getPlato = async (cartaId, platoId) => {
+  const resp = await axios.get(`${urlFirebase}/${cartaId}/platos/${platoId}.json`)
+  return resp.data
+}
+
 export default {
   getCarta,
   crearPlato,
+  getPlato,
 }

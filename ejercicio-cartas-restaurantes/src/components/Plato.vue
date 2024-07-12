@@ -1,8 +1,8 @@
 <template>
-  <div class="plato" @click="verInfo">
-    <img :src="plato.src" :alt="altImagen">
-    <span class="titulo">{{ plato.titulo }}</span>
-    <span>{{ precio }}</span>
+  <div class="plato" data-test="plato" @click="verInfo">
+    <img :src="plato.src" :alt="altImagen" data-test="plato-imagen">
+    <span class="titulo" data-test="plato-titulo">{{ plato.titulo }}</span>
+    <span data-test="plato-precio">{{ precio }}</span>
   </div>
 </template>
 
@@ -27,7 +27,10 @@ const altImagen = computed(() => {
 
 const verInfo = () => {
   const cartaId = route.params.cartaId
-  router.push(`/cartas/${cartaId}/platos/${props.plato.id}`)
+  router.push({ name: 'plato', params: {
+    cartaId,
+    platoId: props.plato.id
+  }})
 }
 </script>
 
